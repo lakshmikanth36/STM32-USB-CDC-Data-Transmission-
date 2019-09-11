@@ -1,0 +1,41 @@
+1) What are the steps I have been followed ?
+
+As per below link I followed the steps
+
+https://st–c.eu10.content.force.com/sfc/dist/version/download/?oid=00Db0000000YtG6&ids=0680X000006HxsN&d=%2Fa%2F0X0000000b2Y%2FTPX_NFqVFfweAISP1YO3PDDPHXqpPClIHVYTgaJcmEY&asPdf=false%27
+
+https://community.st.com/s/question/0D50X0000BI0cxESQR/unable-to-transmit-the-data-usb-cdc-to-pc-stm32l476rg-eval-board
+
+Steps:
+I generated code in CubeMx as per above link.
+I have added little bit code to Transmit the data to PC as mention below.
+– Enable LED pin (GPIO_SET)
+– Transmit The data (CDC_Transmit Function) CDC_Transmit_FS(UserTxBuffer,7);
+– Disable the LED pin(GPIO_RESET)
+
+2) What does work?
+
+Till Now I haven’t seen any Data Transmit(From Board STM32L476RG) to PC (Putty)
+
+3) Where does your code stuck (did you try to debug it?)?
+
+1) I tried to put in debug mode (In CubeMX enable SW in Debug options).
+2) I can able to see in the log ,it’s enter into CDC_Transmit Function and displayed as shown in below syntax.
+3) Debug_write(“Message Transmitted”,(uint16_t)20);
+i.e Message Trasmitted was displayed on Serial wire viewer on both STLINK Utiity/Atollic IDE (SWO output)
+4) I enabled USBD_DEBUG_LEVEL 3.Find the Below log for reference.
+
+[2.160] read(): Rx: $vFlashWrite:80051b0:\001\004\002\010\000\020\020\020\004\020\020\020\002\020\020\020\010ERROR: \000Invalid Device handle\000Invalid Class handle\000USBD SWO test1\000DEBUG : \000USBD SWO test2\000End\000\000\000\000\000\000\000\000\000\001\002\003\004\006\007\010\011\000\000\000\000\001\002\003\004\000\377\377\001\000@\015\003\000\377\032\006\000\0005\014\000@B\017\000\377\377\036\000\000\011=\000\000\022z\000\000}\004\377\000\0006n\001\000H\377\001\000l\377\002Message received\012\000CDC Receive\000Message Transmitted\000CDC Transmit\000Message:Buf\000\000\002\001\002CDC Config\000CDC Interface\000STMicroelectronics\000STM32 Virtual ComPort\000\000\000\000\377\001\000 \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000...
+.
+[3.469] spawnCubeProgrammer(): 19:04:05:899 STLinkUSBDriver.dll loaded
+
+5) I have seen in the Log (Invalid Device/Class).. I noticed the it’s unable to find the Device/class.
+
+4) Does it transmit anything or is it completely dead?
+
+I could see any data transmission on PC (Putty)
+
+– Can you receive anything from some other board/device?
+I couldn’t receiving any data from board/device.
+
+Board USED : STM32L476RG 
