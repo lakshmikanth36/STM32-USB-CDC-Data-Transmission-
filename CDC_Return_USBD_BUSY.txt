@@ -2,6 +2,6 @@
 # I tried to debug the USB CDC Communication.
 # The Function CDC_Transmit_FS() => always return USBD_BUSY state.
 Need to Find the overcome of USBD_BUSY state.
-
+# Actually I found STLink Virual COM Port(COM4) in device manager.
 
   
