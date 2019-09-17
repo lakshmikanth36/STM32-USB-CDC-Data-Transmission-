@@ -1,0 +1,23 @@
+Taken an Reference from different Board (STM32L452RE)
+
+1)	STM32Cube\Repository\STM32Cube_FW_L4_V1.14.0\Projects\NUCLEO-L452RE\Applications\USB_Device\CDC_Standalone\readme.txt
+
+            - NUCLEO-L452RE Set-up
+
+Since there is no USB 2.0 Full speed connector (Type B) on the nucleo board, user has to make his own USB shield daughter board with the a USB connector and plug it on top of the  CN10  connectors of the STM32L452RE-Nucleo. The USB connector has to be connected to the USB device associated GPIOs as follows:
+
+    - DP (D+ of the USB connector) <======> PA12 (Nucleo board)
+    - DM (D- of the USB connector) <======> PA11 (Nucleo board)
+
+2)	Our Eval Board (STM32L476RG NUCLEO) doesn’t given an reference README to do above following things .
+
+So I thought we had required USB shield daughter board ,we have to connect to these pins PA12 & PA11 Pins and Test the USB Communication.
+
+Issue. (UDB CDC Communication)
+
+While Transmitting the data (Board to PC) always USB Communication goes to Fails state.
+I have observed in the Eval board by putting into debug mode. 
+I thing USB is unable to get device/class ID due to that USB is not enumerated.
+Shall we have to try a attempt with connecting separate USB shield daughter board and test. 
+   
+ 
